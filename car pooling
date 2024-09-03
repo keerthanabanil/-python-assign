@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpooling Community</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .car-icon {
+            font-size: 100px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            background: -webkit-linear-gradient(#007BFF, #00C6FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .highlight {
+            color: #007BFF;
+            font-weight: 700;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .link {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .terms {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .terms input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" class="container">
+        <div id="home-view">
+            <div class="car-icon">🚗</div>
+            <h1><span class="highlight">Join</span> the <span class="highlight">Carpooling</span> Community</h1>
+            <div class="buttons">
+                <button onclick="showView('login-view')" class="button">Login</button>
+                <button onclick="showView('signup-view')" class="button">Sign Up</button>
+            </div>
+        </div>
+
+        <div id="login-view" class="hidden">
+            <h1>Login</h1>
+            <form action="javascript:void(0);" method="POST">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="button">Login</button>
+            </form>
+            <a href="#" class="link" onclick="showView('signup-view')">Don't have an account? Sign Up</a>
+        </div>
+
+        <div id="signup-view" class="hidden">
+            <h1>Sign Up</h1>
+            <form action="javascript:void(0);" method="POST">
+                <div style="display: flex; gap: 15px; width: 100%; max-width: 400px;">
+                    <input type="text" placeholder="First Name" required style="flex: 1;">
+                    <input type="text" placeholder="Last Name" required style="flex: 1;">
+                </div>
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a></label>
+                </div>
+                <button type="submit" class="button">Sign Up</button>
+            </form>
+            <a href="#" class="link" onclick="showView('login-view')">Already have an account? Login</a>
+        </div>
+    </div>
+
+    <script>
+        function showView(viewId) {
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('signup-view').classList.add('hidden');
+            document.getElementById(viewId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
